@@ -9,31 +9,33 @@ export default defineConfig({
     tailwindcss(),
 
     VitePWA({
-      registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true
+  registerType: 'autoUpdate',
+  devOptions: {
+    enabled: true
+  },
+  workbox: {
+    globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+  },
+  manifest: {
+    name: 'To Do List',
+    short_name: 'Todo',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#ffffff',
+    theme_color: '#ffffff',
+    icons: [
+      {
+        src: '/pwa-192.png',
+        sizes: '192x192',
+        type: 'image/png'
       },
-      manifest: {
-        name: 'Todo List',
-        short_name: 'Todo',
-        description: 'My Todo mobile app',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
-        display: 'standalone',
-        start_url: '/',
-        icons: [
-          {
-            src: '/pwa-192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: '/pwa-512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
+      {
+        src: '/pwa-512.png',
+        sizes: '512x512',
+        type: 'image/png'
       }
-    })
-  ],
+    ]
+  }
 })
+  ]
+})  
